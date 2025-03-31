@@ -80,6 +80,7 @@ export const KycManager = () => {
   const [ensNameWithoutSuffix, setEnsNameWithoutSuffix] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState<KycLevel>(KycLevel.BASIC);
   // balance变量用于跟踪用户余额，虽然当前UI中未显示，但在后台更新以备将来使用
   //  - balance is updated but not displayed in UI
   const [balance, setBalance] = useState<bigint>(BigInt(0)); // 使用BigInt()代替字面量
@@ -192,7 +193,7 @@ export const KycManager = () => {
         address: KYC_SBT_ADDRESS as `0x${string}`,
         abi: KycSBTAbi,
         functionName: 'requestKyc',
-        args: [fullEnsName],
+        args: [fullEnsName, selectedLevel],
         account: walletAddress,
         value: totalFee
       });
@@ -313,6 +314,27 @@ export const KycManager = () => {
     return new Date(Number(timestamp) * 1000).toLocaleString();
   };
 
+  const renderLevelOptions = () => {
+    return (
+      <select 
+        value={selectedLevel} 
+        onChange={(e) => setSelectedLevel(Number(e.target.value) as KycLevel)}
+        style={{
+          padding: '10px',
+          border: '2px solid black',
+          borderRadius: '6px',
+          fontSize: '16px',
+          marginRight: '10px'
+        }}
+      >
+        <option value={KycLevel.BASIC}>Basic</option>
+        <option value={KycLevel.ADVANCED}>Advanced</option>
+        <option value={KycLevel.PREMIUM}>Premium</option>
+        <option value={KycLevel.ULTIMATE}>Ultimate</option>
+      </select>
+    );
+  };
+
   // Effect to check KYC status and balance when address changes
   useEffect(() => {
     if (address) {
@@ -417,6 +439,7 @@ export const KycManager = () => {
             />
             <span style={ensSuffixStyles}>.hsk</span>
           </div>
+          {renderLevelOptions()}
           <button 
             onClick={requestKyc} 
             disabled={isProcessing}
@@ -428,4 +451,4 @@ export const KycManager = () => {
       )}
     </div>
   );
-}; 
+};
