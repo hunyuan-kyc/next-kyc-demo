@@ -428,7 +428,7 @@ export const KycManager = () => {
         </div>
       ) : (
         /* Request KYC Section */
-        <div style={kycSectionStyle}>
+        <div style={kycSectionStyle}  className="text-white">
           <div style={ensInputGroupStyles}>
             <input 
               value={ensNameWithoutSuffix}
