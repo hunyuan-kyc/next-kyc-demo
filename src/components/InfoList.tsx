@@ -58,21 +58,21 @@ export const InfoList = () => {
                 </a><br />
 
                 GitHub: <a 
-                  href="https://github.com/hunyuan-kyc/next-demo" 
+                  href="https://github.com/hunyuan-kyc/next-kyc-demo" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={linkStyle}
                 >
-                  https://github.com/hunyuan-kyc/next-demo
+                  https://github.com/hunyuan-kyc/next-kyc-demo
                 </a><br />
 
                 ABI: <a 
-                  href="https://github.com/hunyuan-kyc/next-demo/blob/master/src/abis/KycSBT.json" 
+                  href="https://github.com/hunyuan-kyc/next-kyc-demo/blob/master/src/abis/KycSBT.json" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={linkStyle}
                 >
-                  https://github.com/hunyuan-kyc/next-demo/blob/master/src/abis/KycSBT.json
+                  https://github.com/hunyuan-kyc/next-kyc-demo/blob/master/src/abis/KycSBT.json
                 </a><br />
 
                 Audit Report: <a 
