@@ -10,7 +10,9 @@ export default function Home() {
   return (
     <div className={"pages"}>
       {/* <Image src="/reown.svg" alt="Reown" width={150} height={150} priority /> */}
-      <h1>HunYuan on-chain KYC integration demo</h1>
+      <div className="text-center mb-8">
+        <h1 className="text-5xl font-bold text-primary">HunYuan on-chain KYC integration demo</h1>
+      </div>
 
       <ConnectButton />
       <ActionButtonList />
